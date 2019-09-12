@@ -5,7 +5,7 @@ import json
 # Create your views here.
 #view to render form to enter thr desired word
 def searchview(request):
-    context={"word":wordlist}
+    context={}
     return render(request,'search/searchview.html',context)
 
 #checks the apalhabets or words enterd  are in wordlist in realtime
@@ -21,10 +21,11 @@ def autocomplete(request):
 #retuns a json response of result of top 25 values conatining searched partial word
 def getSearchResults(request):
     if request.method == 'GET':
-        query = request.GET.get('term') # for example: query = 'hello'
+        query = request.GET.get('term')  # for example: query = 'hello'
         if query:
-            searchResult = sorting(search(query.lower()), query.lower())
-            if len(searchResult) == 0:
+            if len(search(query.lower())):
+                searchResult = sorting(search(query.lower()), query.lower())
+            elif len(search(query.lower())) == 0:
                 return JsonResponse({'Search_Result': "Word not found."})
             else:
                 return JsonResponse({'Search_Result': searchResult})
