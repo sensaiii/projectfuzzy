@@ -12,7 +12,7 @@ with open('word_search.tsv') as data:       #opning the tsv file as databases
 def search(val):
     result=[]
     for word in wordlist:
-        if value in word:
+        if val in word:
             result.append(word)
     return result
 
