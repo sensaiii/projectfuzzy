@@ -23,11 +23,11 @@ def getSearchResults(request):
     if request.method == 'GET':
         query = request.GET.get('term')  # for example: query = 'hello'
         if query:
-            if len(search(query.lower())):
+            if len(search(query.lower())) != 0:
                 searchResult = sorting(search(query.lower()), query.lower())
+                return JsonResponse({'Search_Result': searchResult})
             elif len(search(query.lower())) == 0:
                 return JsonResponse({'Search_Result': "Word not found."})
-            else:
-                return JsonResponse({'Search_Result': searchResult})
+
         else:
             return redirect('/')
