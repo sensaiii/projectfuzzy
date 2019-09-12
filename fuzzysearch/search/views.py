@@ -6,7 +6,7 @@ import json
 #view to render form to enter thr desired word
 def searchview(request):
     context={}
-    return render(request,'search/searchview.html',context)
+    return render(request,'search/index.html',context)
 
 #checks the apalhabets or words enterd  are in wordlist in realtime
 def autocomplete(request):
