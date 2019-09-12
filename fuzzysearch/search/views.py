@@ -1,14 +1,14 @@
 from django.shortcuts import render,redirect
 from django.http import JsonResponse,HttpResponse
-from .sort import search,sorting
+from .sort import search,sorting,wordlist
 import json
 # Create your views here.
 #view to render form to enter thr desired word
 def searchview(request):
-    context={}
+    context={"word":wordlist}
     return render(request,'search/searchview.html',context)
 
-#checks the apalhabets or words enterd  are in wordlist in realtime 
+#checks the apalhabets or words enterd  are in wordlist in realtime
 def autocomplete(request):
     if request.is_ajax():
         query=request.Get.get('term','')

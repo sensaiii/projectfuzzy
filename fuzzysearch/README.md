@@ -5,7 +5,9 @@ A Django based Word Search WebApp This WebApp basically renders a search box on 
 
 Requirements (Tested on)     
 
-Python 3.7.1 django 2.1.7 fuzzywuzzy
+Python 3.7.1 django 2.1.7 fuzzywuzzy,python-Levenshtein-wheels 0.13.1
+
+
 
 Frontend. A simple jQuery based HTML template of Search Box with a Search button.
 
